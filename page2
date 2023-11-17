@@ -1,0 +1,18 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $comment = $_POST['comment'];
+
+    $to = "pooja.senthilkumar.a@gmail.com";
+    $subject = "New comment/question from your blog";
+    $message = "Name: $name\nEmail: $email\nComment: $comment";
+
+    // Use the mail() function to send the email
+    mail($to, $subject, $message);
+
+    // Redirect back to the blog post after submitting the comment
+    header("Location: blog-post.php");
+    exit();
+}
+?>
